@@ -1,59 +1,76 @@
-# Secure System-on-Chip (SoC) for IoT Development
+# Secure SoC for IoT Development
 
 ## Overview
-The Secure System-on-Chip (SoC) for IoT Development project focuses on designing a secure architecture tailored for Internet of Things (IoT) applications. This SoC integrates AES encryption and communication protocols like MQTT and CoAP to ensure data security and efficient communication across IoT devices.
+The Secure System-on-Chip (SoC) for IoT Development project focuses on enhancing data security and communication efficiency for IoT applications. This project involves the design and implementation of a secure SoC utilizing AES encryption and communication protocols such as MQTT and CoAP. 
+
+The SoC is developed for the Raspberry Pi 4, providing a robust platform for secure data transmission and management within IoT ecosystems.
 
 ## Features
-- **AES Encryption**: Implemented AES-128 encryption to secure data transmission within IoT applications.
-- **Protocol Support**: Incorporated MQTT and CoAP protocols to facilitate lightweight and efficient communication between devices.
-- **Performance Evaluations**: Conducted evaluations on memory consumption and cycle count to optimize the encryption processes.
-- **Galois/Counter Mode (GCM)**: Integrated GCM with AES-128 to enhance both encryption and decryption processes.
-- **Initialization Vector Management**: Developed methods for generating valid initialization vectors (IVs) to maintain data integrity in the SensorTag publisher/subscriber system.
+- **AES-128 Encryption**: Implemented AES-128 encryption for secure data transmission, enhancing protection against unauthorized access.
+- **Communication Protocols**: Integrated MQTT and CoAP protocols to facilitate efficient and secure communication between IoT devices.
+- **Performance Evaluation**: Conducted comprehensive performance evaluations on memory consumption and cycle count for the AES encryption implementation.
+- **Key Management**: Developed key schedule management strategies for secure key generation and distribution.
+- **Galois/Counter Mode (GCM)**: Integrated GCM with AES-128 to ensure confidentiality and integrity of data during transmission.
 
 ## Workflow
-1. **SoC Design**:
-    - Designed the architecture of the SoC, integrating AES encryption, MQTT, and CoAP protocols.
-  
-2. **AES Encryption Implementation**:
-    - Implemented the AES-128 encryption algorithm and developed key schedule management strategies.
-    - Conducted performance evaluations on memory usage and cycle count for various encryption tasks.
+1. **Design Phase**:
+    - Designed the secure SoC architecture, including the integration of AES encryption and communication protocols.
+    - Defined the requirements for data integrity and security in the SensorTag system.
 
-3. **GCM Integration**:
-    - Integrated Galois/Counter Mode (GCM) with AES-128 for enhanced encryption capabilities, allowing for simultaneous encryption and integrity checking.
+2. **Implementation**:
+    - Developed the AES-128 encryption module and implemented GCM for enhanced security features.
+    - Integrated MQTT and CoAP protocols for effective communication among IoT devices.
 
-4. **Initialization Vector Generation**:
-    - Devised methods for generating valid IVs to ensure data integrity and security within the SensorTag system.
+3. **Performance Evaluation**:
+    - Conducted tests to evaluate memory consumption and cycle count of the AES implementation.
+    - Documented performance metrics to assess the feasibility of using the SoC in resource-constrained environments.
+
+4. **Initialization Vector (IV) Generation**:
+    - Devised methods for generating valid initialization vectors to maintain data integrity in the publisher/subscriber system.
 
 ## Hardware & Tools
-- **System-on-Chip (SoC) Architecture**: Custom-designed architecture supporting IoT applications.
-- **AES Encryption**: Used standard AES-128 algorithm for data security.
-- **Communication Protocols**: Implemented MQTT and CoAP for efficient data transmission.
-- **Development Environment**: Designed and tested using a hardware description language (HDL) for SoC implementations.
+- **Raspberry Pi 4**: The primary hardware platform for developing and testing the secure SoC.
+- **Programming Language**: Developed the software components using C/C++ and Python.
+- **Encryption Libraries**: Utilized cryptographic libraries for implementing AES encryption and GCM.
+- **MQTT & CoAP Libraries**: Integrated libraries to facilitate communication between IoT devices.
 
 ## Installation and Setup
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/TheMechanicHulk/Secure-SoC-for-IoT-Development.git
-    cd Secure-SoC-for-IoT-Development
+    git clone https://github.com/TheMechanicHulk/Secure-SoC-IoT-Development.git
+    cd Secure-SoC-IoT-Development
     ```
 
-2. **Build the SoC Design**:
-    - Follow the provided instructions in the `docs/` folder to set up the development environment and build the SoC design files.
+2. **Hardware Setup**:
+    - Assemble the components as per the design specifications on a Raspberry Pi 4.
+    - Connect required peripherals for testing communication and encryption functionalities.
 
-3. **Testing the Implementation**:
-    - Run the provided test scripts to evaluate the performance of AES encryption and communication protocols.
+3. **Software Configuration**:
+    - Install necessary libraries for encryption and communication:
+    ```bash
+    sudo apt update
+    sudo apt install libssl-dev mosquitto mosquitto-clients
+    ```
+
+4. **Run the Application**:
+    - Start the IoT application with secure communication:
+    ```bash
+    python3 main.py
+    ```
 
 ## Results
-- The implementation demonstrated efficient data encryption and secure communication for IoT applications, successfully maintaining data integrity across the SensorTag system.
-- Performance evaluations indicated optimal memory usage and cycle counts for AES encryption processes, confirming the viability of the design for real-world applications.
+- The developed SoC successfully implemented AES-128 encryption, ensuring secure data transmission.
+- Performance evaluations indicated optimal memory usage and cycle count, making it suitable for resource-constrained IoT devices.
+- The integration of GCM with AES-128 enhanced data integrity and confidentiality, providing a reliable solution for IoT applications.
 
 ## Future Improvements
-- **Enhanced Security Features**: Explore additional security features such as digital signatures and secure boot mechanisms.
-- **Protocol Optimization**: Investigate optimizations for MQTT and CoAP protocols to further enhance communication efficiency.
-- **Scalability Studies**: Conduct studies to evaluate the SoC's performance and scalability in large-scale IoT deployments.
+- **Scalability**: Explore scalability options for handling multiple IoT devices simultaneously.
+- **Enhanced Key Management**: Develop more robust key management protocols for improved security.
+- **Integration with More Protocols**: Investigate the integration of additional communication protocols for broader compatibility.
 
 ## File Structure
 ```bash
-├── docs/              # Documentation for SoC design and implementation details
-├── scripts/           # Test scripts for evaluating AES encryption and communication protocols
+├── src/               # Contains source code and implementation files
+├── docs/              # Documentation and design specifications
+├── tests/             # Test scripts and performance evaluation results
 └── README.md          # Project documentation
